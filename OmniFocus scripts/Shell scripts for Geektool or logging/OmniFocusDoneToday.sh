@@ -1,10 +1,9 @@
-#!/bin/sh
+. #!/bin/sh
 # Ver 0.02
 # Lists items done today in the OmniFocus Sqlite cache
 
-OFOC="com.omnigroup.OmniFocus"
-if [ ! -d "$HOME/Library/Caches/$OFOC" ]; then OFOC=$OFOC.MacAppStore; fi
-OFQUERY="sqlite3 $HOME/Library/Caches/$OFOC/OmniFocusDatabase2"
+OFOC="com.omnigroup.OmniFocus2"
+OFQUERY="sqlite3 $HOME/Library/Containers/$OFOC/Data/Library/Caches/$OFOC/OmniFocusDatabase2"
 START_OF_DAY=$(date -v0H -v0M -v0S +%s) #Midnight at the start of today: set the time component to 00:00
 
 # Suggestions welcome here - not sure this simple arithmetic works for New Zealand's DST +1300 UTC
